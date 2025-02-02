@@ -20,7 +20,12 @@
         <button type="submit">Update</button>
     </form>
     <h2>Current Statuses:</h2>
-    <p>Dr Pookie Badmosh: {{ user_statuses['Dr Pookie Badmosh'] }}</p>
-    <p>Chonk E Pupper: {{ user_statuses['Chonk E Pupper'] }}</p>
+    <p>Dr Pookie Badmosh: {{ user_statuses['Dr Pookie Badmosh']['status'] }}</p>
+    <p>Chonk E Pupper: {{ user_statuses['Chonk E Pupper']['status'] }}</p>
+    {% if last_updated %}
+    <p> Status last updated by {{ last_updated['user'] }} at {{ last_updated['time'].strftime('%d-%m-%Y %H:%M:%S') }}</p>
+    {% else %}
+    <p> Status last updated: Never </p>
+    {% endif %}
 </body>
 </html>
